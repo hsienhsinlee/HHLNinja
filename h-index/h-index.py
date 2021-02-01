@@ -63,6 +63,12 @@ participants = {
         "sorted_citation": [],
         "h-index": 0
     },
+    8 : {
+        "name": "Isaac Asimov",
+        "citation": [3, 4, 5, 4, 6, 4, 5, 7, 8, 10, 11, 12, 11, 10, 9, 9, 10, 11, 23, 13],
+        "sorted_citation": [],
+        "h-index": 0
+    }
 }
 
 for p in participants:
