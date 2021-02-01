@@ -1,0 +1,13 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        
+        {
+            "type": "fb-python",
+            "request": "launch",
+            "name": "Launch Python Script Debugging",
+            "program": "${file}",
+            "console": "internalConsole"
+        }
+    ]
+}
