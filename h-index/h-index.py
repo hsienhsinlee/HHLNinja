@@ -1,6 +1,18 @@
 #!/usr/local/bin/python3
 
-citation_count = [8, 4, 5, 2, 45, 20, 11, 5, 5, 6, 7, 7, 12, 3, 13, 14, 5, 6 , 9, 10]
+"""
+*** Description ***
+
+Implement the algorithm to calculate H index
+
+The h-index is defined as the maximum value of “h“ such that the given author has published ”h“ papers
+that have each been cited at least ”h“ times.
+
+Here is an example. Given a list of paper citation numbers such as [5, 6, 2, 8, 4, 9], we want to
+find a maximum number h, so that there are x numbers whose values are greater than or equal to x.
+In the example given, the answer should be 4.
+
+"""
 
 participants = {
     1 : {
@@ -42,6 +54,12 @@ participants = {
     6 : {
         "name": "Alex K. Jones",
         "citation": [1, 1, 1, 1, 2, 1, 1, 2],
+        "sorted_citation": [],
+        "h-index": 0
+    },
+    7 : {
+        "name": "Tyler Smith",
+        "citation": [5, 6, 2, 8, 4, 9],
         "sorted_citation": [],
         "h-index": 0
     },
