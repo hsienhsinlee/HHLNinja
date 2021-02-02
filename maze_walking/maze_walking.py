@@ -29,7 +29,7 @@ Assuming a zero-indexed grid of rows and columns, we'd return:
 
 """
 
-maze = [
+mazeL = [
     [0, 0, 0, 0, 0, 0, 0],
     [1, 0, 1, 0, 0, 1, 0],
     [0, 0, 1, 0, 1, 1, 0],
@@ -53,15 +53,21 @@ mazeX = [
     [1, 1, 1, 0, 0, 0, 0]
 ]
 
-maze = [
-    [0, 0, 0],
-    [0, 0, 0],
+maze33 = [
+    [1, 1, 0],
+    [0, 1, 0],
     [0, 0, 0]
 ]
 
-mazed = [
+maze23 = [
     [0, 0, 0],
     [1, 0, 0]
+]
+
+maze = [
+    [0, 0, 0, 0],
+    [0, 0, 0, 0],
+    [0, 0, 1, 0]
 ]
 
 num_row = len(maze)
@@ -83,11 +89,11 @@ for row in range(0, num_row):
 
 
 # Depth-First Search
-def dfs(board, x, y, path):
+def dfs(board, x, y, ex, ey, path):
     path.append((x,y))
 
     # if it is exit
-    if (x==num_row-1 and y==num_col-1):
+    if (x==ex and y==ey):
         if (board[x][y]==0):
             return True
         else:
@@ -104,16 +110,16 @@ def dfs(board, x, y, path):
         return False
 
     board[x][y] = 2 # visited entry
-    r = dfs(board, x+1,   y,    path)
+    r = dfs(board, x+1,   y,    ex, ey, path)
     if (r):
         return True
-    r = dfs(board, x,     y+1,  path)
+    r = dfs(board, x,     y+1,  ex, ey, path)
     if (r):
         return True
-    r = dfs(board, x,     y-1,  path)
+    r = dfs(board, x,     y-1,  ex, ey, path)
     if (r):
         return True
-    r = dfs(board, x-1,   y,    path)
+    r = dfs(board, x-1,   y,    ex, ey, path)
     if (r):
         return True
     else:
@@ -121,77 +127,19 @@ def dfs(board, x, y, path):
         return False
 
 
-def valid_check(x,y):
-    print(x, y)
-    if ((x>=num_row or x<0) or (y>=num_col or y<0)):
-        return False
-    else:
-        return True
-
-def end_point(x, y):
-    if (x==num_row-1 and y==num_col-1):
-        if (board[x][y]==0):
-            print(queue)
-            return True
-        else:
-            return False
-
-# Bread First Search solution
-def bfs_mine(board, x, y, queue):
-    if (board[x][y]==1):
+def bfs(board, sx, sy, ex, ey):
+    if (board[sx][sy]==1):
         return False
 
-    queue.append([x,y])
-
-    print("QUEUE", queue)
-    while (queue):
-        temp_queue = []
-        node = queue.pop()
-        if (valid_check(x, y+1) and board[x][y+1]==0):
-            reached = end_point(x, y+1)
-            if (reached):
-                return (node, (x, y+1))
-            else:
-                temp_queue.append((node, (x, y+1)))
-                print("A", temp_queue)
-
-        if (valid_check(x+1, y) and board[x+1][y]==0):
-            reached = end_point(x+1, y)
-            if (reached):
-                return (node, (x+1, y))
-            else:
-                temp_queue.append((node, (x+1, y)))
-                print("B", temp_queue)
-
-        if (valid_check(x, y-1) and board[x][y-1]==0):
-            reached = end_point(x, y-1)
-            if (reached):
-                return (node, (x, y-1))
-            else:
-                temp_queue.append((node, (x, y-1)))
-                print("C", temp_queue)
-
-
-        if (valid_check(x-1, y) and board[x-1][y]==0):
-            reached = end_point(x-1, y)
-            if (reached):
-                return (node, (x-1, y))
-            else:
-                temp_queue.append((node, (x-1, y)))
-                print("D", temp_queue)
-
-
-        queue = temp_queue.copy()
-        print("NEW QUEUE", queue)
-
-def bfs(board):
-    q = [(0,0)]
+    q = [(sx, sy)]
     while len(q) > 0:
-        print("Q Len =", len(q))
+        #print("len(q) =", len(q))
         pos = q[0]
-        print("POS", pos)
+        #print("q[0] == ", pos)
         del q[0]
-        if pos[0] == len(board) - 1 and pos[1] == len(board[0]) - 1:
+
+        # Reach the end
+        if pos[0] == ex and pos[1] == ey:
             return True
         next_pos = [(x, y) for x, y in [
             (pos[0] + 1, pos[1]),
@@ -201,38 +149,49 @@ def bfs(board):
             ] if x >= 0 and x < len(board) and y >=0 and y < len(board[0]) and
                 board[x][y] == 0]
 
-        print("LLL", next_pos)
+        print("next_pos", next_pos)
         for n in next_pos:
-            print("N",n[0], n[1], "added POS", pos)
+            #print("n in next_pos",n[0], n[1], "added POS", pos)
             board[n[0]][n[1]] = pos
             q.append(n)
     return False
 
 
 
-
 # Start of the Program
-"""path = []
-route = dfs(maze, 0, 0, path)
+start_x = 0
+start_y = 0
+end_x = len(maze) - 1
+end_y = len(maze[0]) - 1
+
+print(maze)
+# DFS solution
+path = []
+route = dfs(maze, start_x, start_y, end_x, end_y, path)
 if (route):
     print("Depth-First Search--> path is", path)
 else:
     print("Depth-First Search--> no path")
-"""
-print("BE", maze[1][2])
+
+
+# BFS solution
+maze = [
+    [0, 0, 0, 0],
+    [0, 0, 0, 0],
+    [0, 0, 1, 0]
+]
 path = []
-found = bfs(maze)
+found = bfs(maze, start_x , start_y, end_x, end_y)
 if (found):
-    print(len(maze), len(maze[0]), maze[1][2])
-    print("M2", maze)
-    pos = (maze[len(maze)-1][len(maze[0])-1]) # the exit position
-    print("POSbefore", pos)
-    while not (pos[0] == 0 and pos[1] ==0):
+    #print(len(maze), len(maze[0]), maze[1][2])
+    #print("updated maze", maze)
+    pos = (maze[len(maze)-1][len(maze[0])-1]) # backtrack from the exit position
+    # start from the destination
+    path.insert(0, (end_x, end_y))
+    while not (pos[0] == start_x and pos[1] == start_y):
         path.insert(0, pos)
-        print("POS", pos)
         pos = maze[pos[0]][pos[1]]
-    print("WHAT IS THIS", pos)
-    path.insert(0, (0,0))
+    path.insert(0, pos) # (start_x, start_y))
     print("Breadth-First Search--> path is", path)
 else:
     print("Breadth-First Search--> no path")
