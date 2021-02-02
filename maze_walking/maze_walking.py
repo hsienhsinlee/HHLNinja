@@ -37,29 +37,37 @@ maze = [
     [1, 1, 1, 0, 0, 0, 0]
 ]
 
-maze = [
-    [0, 0, 0, 0, 0, 0, 0],
+maze2 = [
+    [0, 0, 0, 1, 0, 0, 0],
     [1, 0, 1, 0, 0, 1, 0],
     [0, 0, 1, 0, 0, 0, 0],
     [0, 0, 0, 1, 1, 0, 1],
+    [1, 1, 0, 0, 0, 0, 0]
+]
+
+mazeX = [
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 1, 1, 1, 1, 0],
+    [0, 0, 1, 0, 0, 0, 0],
+    [0, 0, 1, 0, 1, 0, 1],
     [1, 1, 1, 0, 0, 0, 0]
 ]
 
-maze3 = [
-    [0, 0, 1],
-    [1, 0, 0],
-    [0, 1, 0]
+maze = [
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0]
 ]
 
-maze2 = [
+mazed = [
     [0, 0, 0],
-    [0, 0, 1]
+    [1, 0, 0]
 ]
 
 num_row = len(maze)
 num_col = len(maze[0])
-print(num_row)
-print(num_col)
+#print(num_row)
+#print(num_col)
 
 # iterating thru maze
 """
@@ -113,9 +121,118 @@ def dfs(board, x, y, path):
         return False
 
 
-path = []
+def valid_check(x,y):
+    print(x, y)
+    if ((x>=num_row or x<0) or (y>=num_col or y<0)):
+        return False
+    else:
+        return True
+
+def end_point(x, y):
+    if (x==num_row-1 and y==num_col-1):
+        if (board[x][y]==0):
+            print(queue)
+            return True
+        else:
+            return False
+
+# Bread First Search solution
+def bfs_mine(board, x, y, queue):
+    if (board[x][y]==1):
+        return False
+
+    queue.append([x,y])
+
+    print("QUEUE", queue)
+    while (queue):
+        temp_queue = []
+        node = queue.pop()
+        if (valid_check(x, y+1) and board[x][y+1]==0):
+            reached = end_point(x, y+1)
+            if (reached):
+                return (node, (x, y+1))
+            else:
+                temp_queue.append((node, (x, y+1)))
+                print("A", temp_queue)
+
+        if (valid_check(x+1, y) and board[x+1][y]==0):
+            reached = end_point(x+1, y)
+            if (reached):
+                return (node, (x+1, y))
+            else:
+                temp_queue.append((node, (x+1, y)))
+                print("B", temp_queue)
+
+        if (valid_check(x, y-1) and board[x][y-1]==0):
+            reached = end_point(x, y-1)
+            if (reached):
+                return (node, (x, y-1))
+            else:
+                temp_queue.append((node, (x, y-1)))
+                print("C", temp_queue)
+
+
+        if (valid_check(x-1, y) and board[x-1][y]==0):
+            reached = end_point(x-1, y)
+            if (reached):
+                return (node, (x-1, y))
+            else:
+                temp_queue.append((node, (x-1, y)))
+                print("D", temp_queue)
+
+
+        queue = temp_queue.copy()
+        print("NEW QUEUE", queue)
+
+def bfs(board):
+    q = [(0,0)]
+    while len(q) > 0:
+        print("Q Len =", len(q))
+        pos = q[0]
+        print("POS", pos)
+        del q[0]
+        if pos[0] == len(board) - 1 and pos[1] == len(board[0]) - 1:
+            return True
+        next_pos = [(x, y) for x, y in [
+            (pos[0] + 1, pos[1]),
+            (pos[0] - 1, pos[1]),
+            (pos[0], pos[1] + 1),
+            (pos[0], pos[1] - 1)
+            ] if x >= 0 and x < len(board) and y >=0 and y < len(board[0]) and
+                board[x][y] == 0]
+
+        print("LLL", next_pos)
+        for n in next_pos:
+            print("N",n[0], n[1], "added POS", pos)
+            board[n[0]][n[1]] = pos
+            q.append(n)
+    return False
+
+
+
+
+# Start of the Program
+"""path = []
 route = dfs(maze, 0, 0, path)
 if (route):
-    print("path is", path)
+    print("Depth-First Search--> path is", path)
 else:
-    print("no path", path)
+    print("Depth-First Search--> no path")
+"""
+print("BE", maze[1][2])
+path = []
+found = bfs(maze)
+if (found):
+    print(len(maze), len(maze[0]), maze[1][2])
+    print("M2", maze)
+    pos = (maze[len(maze)-1][len(maze[0])-1]) # the exit position
+    print("POSbefore", pos)
+    while not (pos[0] == 0 and pos[1] ==0):
+        path.insert(0, pos)
+        print("POS", pos)
+        pos = maze[pos[0]][pos[1]]
+    print("WHAT IS THIS", pos)
+    path.insert(0, (0,0))
+    print("Breadth-First Search--> path is", path)
+else:
+    print("Breadth-First Search--> no path")
