@@ -1,7 +1,7 @@
 #!/usr/local/bin/python3
 
 
-mazeL = [
+maze = [
     [0, 0, 0, 0, 0, 0, 0],
     [1, 0, 1, 0, 0, 1, 0],
     [0, 0, 1, 0, 1, 1, 0],
@@ -36,7 +36,7 @@ maze23 = [
     [1, 0, 0]
 ]
 
-maze = [
+mazex = [
     [0, 0, 0, 0],
     [0, 0, 0, 0],
     [0, 0, 1, 0]
@@ -102,13 +102,12 @@ def dfs(board, x, y, ex, ey, path):
 
 # Start of the Program
 start_x = 0
-start_y = 3
-end_x = 0 #len(maze) - 1
+start_y = 6
+end_x = 2 #len(maze) - 1
 end_y = 0 #len(maze[0]) - 1
 
-print(maze[0])
-print(maze[1])
-print(maze[2])
+for i in range(0, len(maze)):
+    print(maze[i])
 
 
 # DFS solution

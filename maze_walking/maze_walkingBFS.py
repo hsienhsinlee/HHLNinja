@@ -1,7 +1,7 @@
 #!/usr/local/bin/python3
 
 
-mazeL = [
+maze = [
     [0, 0, 0, 0, 0, 0, 0],
     [1, 0, 1, 0, 0, 1, 0],
     [0, 0, 1, 0, 1, 1, 0],
@@ -36,7 +36,7 @@ maze23 = [
     [1, 0, 0]
 ]
 
-maze = [
+mazex = [
     [0, 0, 0, 0],
     [0, 0, 0, 0],
     [0, 0, 1, 0]
@@ -94,28 +94,27 @@ def bfs(board, sx, sy, ex, ey):
 
 
 # Start of the Program
-start_x = 2
-start_y = 1
+start_x = 0
+start_y = 6
 end_x = 2 #len(maze) - 1
-end_y = 3# len(maze[0]) - 1
+end_y = 0# len(maze[0]) - 1
 
-print(maze[0])
-print(maze[1])
-print(maze[2])
+
+for i in range(0, len(maze)):
+    print(maze[i])
 
 # BFS solution
 path = []
 found = bfs(maze, start_x , start_y, end_x, end_y)
 if (found):
-    #print(len(maze), len(maze[0]), maze[1][2])
-    #print("updated maze", maze)
-    pos = (maze[len(maze)-1][len(maze[0])-1]) # backtrack from the exit position
+    #pos = (maze[len(maze)-1][len(maze[0])-1]) # backtrack from the exit position
+    pos = (end_x, end_y)
     # start from the destination
-    path.insert(0, (end_x, end_y))
+    #path.insert(0, (end_x, end_y))
     while not (pos[0] == start_x and pos[1] == start_y):
         path.insert(0, pos)
         pos = maze[pos[0]][pos[1]]
-    path.insert(0, pos) # (start_x, start_y))
+    path.insert(0, (start_x, start_y))
     print("Breadth-First Search--> path is", path)
 else:
     print("Breadth-First Search--> no path")
