@@ -61,43 +61,6 @@ for row in range(0, num_row):
 
 
 # Depth-First Search
-def dfs(board, x, y, ex, ey, path):
-    path.append((x,y))
-
-    # if it is exit
-    if (x==ex and y==ey):
-        if (board[x][y]==0):
-            return True
-        else:
-            return False
-
-    # outside the board
-    if ((x>=num_row or x<0) or (y>=num_col or y<0)):
-        del path[-1]
-        return False
-
-    # backtrack needed as the node is an impasse or has been visited
-    if (board[x][y] != 0):
-        del path[-1]
-        return False
-
-    board[x][y] = 2 # visited entry
-    r = dfs(board, x+1,   y,    ex, ey, path)
-    if (r):
-        return True
-    r = dfs(board, x,     y+1,  ex, ey, path)
-    if (r):
-        return True
-    r = dfs(board, x,     y-1,  ex, ey, path)
-    if (r):
-        return True
-    r = dfs(board, x-1,   y,    ex, ey, path)
-    if (r):
-        return True
-    else:
-        del path[-1]
-        return False
-
 
 def bfs(board, sx, sy, ex, ey):
     if (board[sx][sy]==1):
@@ -121,7 +84,7 @@ def bfs(board, sx, sy, ex, ey):
             ] if x >= 0 and x < len(board) and y >=0 and y < len(board[0]) and
                 board[x][y] == 0]
 
-        print("next_pos", next_pos)
+        #print("next_pos", next_pos)
         for n in next_pos:
             #print("n in next_pos",n[0], n[1], "added POS", pos)
             board[n[0]][n[1]] = pos
@@ -131,20 +94,14 @@ def bfs(board, sx, sy, ex, ey):
 
 
 # Start of the Program
-start_x = 0
-start_y = 0
-end_x = len(maze) - 1
-end_y = len(maze[0]) - 1
+start_x = 2
+start_y = 1
+end_x = 2 #len(maze) - 1
+end_y = 3# len(maze[0]) - 1
 
-
-# DFS solution
-"""path = []
-route = dfs(mazeDFS, start_x, start_y, end_x, end_y, path)
-if (route):
-    print("Depth-First Search--> path is", path)
-else:
-    print("Depth-First Search--> no path")
-"""
+print(maze[0])
+print(maze[1])
+print(maze[2])
 
 # BFS solution
 path = []
