@@ -3,6 +3,8 @@
 
 *** Description ***
 
+Write a function that takes a postfix input expression and outputs result
+of the calculation.
 
 """
 
@@ -10,13 +12,16 @@
 in_string = [
     '3 5 + 1 2 * /',
     '1 2 * 1 2 + 4 + *',
-    '1 2 3 * +'
+    '1 2 3 * +',
+    '3.5 4.8 12.1 * 2.145 / /',
+    '3 + 4',
+    '2 5 6 8 10 * 9 - - * * '
+
 ]
 
 def string_conversion(input_string):
-    print("input is", input_string)
     parsed_token = []
-    token = in_string.split()
+    token = input_string.split()
 
     for i in token:
         if i == "+":
@@ -39,7 +44,7 @@ def string_conversion(input_string):
     return parsed_token
 
 def postfix_process(input_string):
-    print("parsed string =", input_string)
+
     stack = []
     result = 0
     for element in input_string:
@@ -47,8 +52,11 @@ def postfix_process(input_string):
             if (float(element) or int(element)):
                 stack.append(element)
         except ValueError:
-            op1 = stack.pop() # higher in stack
-            op2 = stack.pop() # lower in stack
+            if (len(stack)<2):
+                return "Invalid"
+            else:
+                op1 = stack.pop() # higher in stack
+                op2 = stack.pop() # lower in stack
             if (element == "+"):
                 result = op2 + op1
             elif (element == "-"):
@@ -60,16 +68,15 @@ def postfix_process(input_string):
             stack.append(result)
     return result
 
-in_string2 = "3 5 + 1 2 * /"
-new_string = string_conversion(in_string2)
-res = postfix_process(new_string)
-print("result of", new_string, "is", res)
+
 # main program
 
-"""for index, ele in enumerate(in_string):
-    print(index, "Posftfix", ele)
+for index, ele in enumerate(in_string):
+
     postfix = ele
     new_string = string_conversion(postfix)
     res = postfix_process(new_string)
-    print("result of", new_string, "is", res)
-"""
+    if (res != "Invalid"):
+        print("[",ele,"]      =", res)
+    else:
+        print("[",ele,"] is not a valide Posix")
