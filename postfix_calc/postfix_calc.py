@@ -1,15 +1,9 @@
 #!/usr/local/bin/python3
 """
-
 *** Description ***
 
-Given a string tokens, please write a function that takes a postfix input expression
-and outputs result of the calculation.
-
-For examples
-
-'3 5 + 1 2 * /'       --> you should output 4
-'1 2 * 1 2 + 4 + *'   --> you should output 14
+Given a string with tokens, please write a function that takes a postfix input expression
+and outputs the result of the calculation.
 
 Examples:
 '3 5 + 1 2 * /'             --> return 4
