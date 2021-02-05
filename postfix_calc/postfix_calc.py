@@ -3,8 +3,13 @@
 
 *** Description ***
 
-Write a function that takes a postfix input expression and outputs result
-of the calculation.
+Given a string tokens, please write a function that takes a postfix input expression
+and outputs result of the calculation.
+
+For examples
+
+'3 5 + 1 2 * /'       --> you should output 4
+'1 2 * 1 2 + 4 + *'   --> you should output 14
 
 """
 
