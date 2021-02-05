@@ -6,6 +6,12 @@
 Write a function that takes a postfix input expression and outputs result
 of the calculation.
 
+Example
+'3 5 + 1 2 * /' --> return 4
+'1 2 * 1 2 + 4 + *' --> return 14
+'3.5 4.8 12.1 * 2.145 / /' -> return 0.12926136
+'3 + 4' -> return "Invalid postfix"
+
 """
 
 
@@ -22,6 +28,7 @@ in_string = [
 def string_conversion(input_string):
     parsed_token = []
     token = input_string.split()
+
 
     for i in token:
         if i == "+":
