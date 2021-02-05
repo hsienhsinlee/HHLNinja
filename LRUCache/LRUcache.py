@@ -19,10 +19,10 @@ capacity = 3.
 put A, value1
 put B, value2
 put C, value3
-get A
-put C, value4
+get A                   // A becomes Most Recently Used
+put C, value4           // C becomes Most Recently Used
 get D, return -1
-put D, value5 // B is removed, and D is added.
+put D, value5           // B is removed, and D is added.
 get B, return -1
 
 """
