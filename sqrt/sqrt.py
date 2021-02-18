@@ -17,8 +17,10 @@ sqrt(169) = 13
 
 
 error = 0.0000009
-
-while (number := float(input("input a number : "))) != 0.0:
+number = float(input("input a number : "))
+# The following syntax was not allowed byold Python
+# while (number := float(input("input a number : "))) != 0.0:
+while (number != 0.0):
     print("number = ", number)
     decimal_number = number - int(number)
     delta = number / 2
@@ -40,3 +42,4 @@ while (number := float(input("input a number : "))) != 0.0:
             break
 
     print(number,"square root =", round(candidate_root,6))
+    number = float(input("input a number : "))
