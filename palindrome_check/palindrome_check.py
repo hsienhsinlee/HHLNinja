@@ -1,7 +1,7 @@
 #!/usr/local/bin/python3
 
 """
-Check if a given string is Palidrome
+Check if a given string is Palindrome
 
 *** Description ***
 

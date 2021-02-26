@@ -10,8 +10,8 @@ For example, for the following board:
 
 entrance -> 0 0 0 0 0 0 0
             0 0 1 0 0 1 0
-            0 0 1 0 1 1 0
-            0 0 1 0 1 0 1
+            1 0 0 0 0 0 0
+            1 0 0 1 1 0 1
             1 1 1 0 0 0 0 -> exit
 
 A possible path is:

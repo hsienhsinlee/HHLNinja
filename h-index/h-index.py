@@ -12,6 +12,8 @@ Here is an example. Given a list of paper citation numbers such as [5, 6, 2, 8, 
 find a maximum number h, so that there are x numbers whose values are greater than or equal to x.
 In the example given, the answer should be 4.
 
+Another example: [1, 3, 1, 3, 2, 1]  H-index = 2
+
 """
 
 participants = {
