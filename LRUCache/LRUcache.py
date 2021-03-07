@@ -4,7 +4,7 @@
 
 Implement a Least-Recently Used (LRU) cache
 
-1. When an item is added or updated it is now the most recently used
+1. When an item is added or updated, it is now the most recently used
 item a.k.a. freshest item.
 
 2. When the cache has exceeded capacity, the "least recently used"
@@ -22,7 +22,7 @@ put C, value3
 get A                   // A becomes Most Recently Used
 put C, value4           // C becomes Most Recently Used
 get D, return -1
-put D, value5           // B is removed, and D is added.
+put D, value5           // B is evicted, and D is added.
 get B, return -1
 
 """
