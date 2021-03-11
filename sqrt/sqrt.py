@@ -2,7 +2,7 @@
 
 """
 
-Compute the Square Root of a given float number.
+Compute the Square Root of a given positive float number.
 If the result is not an integer, please round it
 to the 6th decimal place
 
