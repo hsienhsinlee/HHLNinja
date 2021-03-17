@@ -73,18 +73,40 @@ participants = {
     }
 }
 
+def h_index(nums: int) -> int:
+
+    # make sure this is in ascending order
+    nums.sort()
+
+    i = len(nums)-1
+
+    num_papers = 0
+
+    while True:
+
+        if nums[i] > num_papers:
+            num_papers += 1
+            i -= 1
+
+        else:
+            return num_papers
+
+
 for p in participants:
 
     sorted_citation_count = sorted(participants[p]["citation"], reverse=True)  # sorted list in the original list
     participants[p]["sorted_citation"] = sorted_citation_count.copy()
 
-    h_index = 0
-    for i in sorted_citation_count:
-        if (i > h_index):
-            h_index += 1
-        else:
-            break
-    participants[p]["h-index"] = h_index
+    #h_index = 0
+    #for i in sorted_citation_count:
+    #    if (i > h_index):
+    #        h_index += 1
+    #    else:
+    #        break
+
+    #participants[p]["h-index"] = h_index
+
+    participants[p]["h-index"] = h_index(sorted_citation_count)
 
 # print the new list with H-Index
 for p in participants:
