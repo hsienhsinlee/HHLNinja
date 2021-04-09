@@ -8,7 +8,7 @@ Check if a given string is Palindrome
 Given a case-sensitive string, we want to check if that string can form a palindrome.
 Return a bool indicating true or false. Space is not considered as character(s).
 
-+ Positive Examples: "aba", "abba", "rotator", "no lemon, no melon"
++ Positive Examples: "aba", "abba", "rotator", "no lemon, no   melon"
 - Negative Examples: "acb", "aabc"
 
 """
