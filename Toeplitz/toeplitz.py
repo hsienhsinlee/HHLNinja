@@ -1,9 +1,10 @@
 #!/usr/local/bin/python3
 
 """
+/*
 Description
 
-Given a matrix in the form (int *m, int width, int height), determine
+Given a matrix in the form (int *matrix, int width, int height), determine
 if the matrix is Toeplitz (each diagonal has constant elements) or not.
 
 An example of a Toeplitz matrix is:
@@ -12,7 +13,8 @@ An example of a Toeplitz matrix is:
  9 4 5 6 7
  8 9 4 5 6
  3 8 9 4 5
-
+ */
+ 
 """
 
 matrix = [
