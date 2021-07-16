@@ -34,3 +34,10 @@ while (True):
         print(in_str, "is not a palindrome")
 
     print("------------------------------")
+
+""" Alternative
+while(True):
+    a = input("")
+    an = a.replace(' ','')
+    print(an == an[]::-1])
+""""

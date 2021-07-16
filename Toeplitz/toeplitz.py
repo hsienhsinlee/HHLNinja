@@ -15,7 +15,6 @@ An example of a Toeplitz matrix is:
 
 """
 
-
 matrix = [
     [4, 5, 6, 7, 2, 9],
     [9, 4, 5, 6, 7, 2],
