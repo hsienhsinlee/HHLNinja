@@ -14,6 +14,8 @@ only ten thousand or so are non-zero.
 [1, 0, 0, 2, 3, 0, 20, 7, 0,  0, 0, 0, 2]    = 331
 
 """
+
+# verification
 """
 i = 1
 j = 2
@@ -23,7 +25,6 @@ a[i][0] = 4
 b[j][0] = 4
 psum = 7*3 = 21
 """
-
 
 def dot_product(a, b):
     i = 0
