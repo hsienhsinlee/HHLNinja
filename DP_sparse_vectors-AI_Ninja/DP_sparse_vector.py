@@ -8,7 +8,8 @@ Dot product of sparse vectors
 Please implement an efficient code to perform dot product of
 sparse vectors. A sparse vector is a vector with most elements
 equal to zero --- imagine a vector with millions of elements but
-only ten thousand or so are non-zero.
+only ten thousand or so are non-zero. An efficient code
+considers both storage and arithmetic operations.
 
 [0, 2, 0, 0, 7, 0, 15, 0, 0, 10, 0, 0, 5] *
 [1, 0, 0, 2, 3, 0, 20, 7, 0,  0, 0, 0, 2]    = 331
