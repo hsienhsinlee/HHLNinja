@@ -10,7 +10,7 @@ sparse vectors. A sparse vector is a vector with most elements
 equal to zero --- imagine a vector with millions of elements (or even
 infinite) but only ten thousand or fewer are non-zero. An efficient code
 considers both storage and arithmetic operations. You don't need to worry
-about setup cost.
+about the setup cost.
 
 """
 
