@@ -89,5 +89,5 @@ for i in range(len(filtered_image)):
 
 for i in range(3):
 
-w, h = image.shape()
+w, h = image.shape
 print(w, h)
