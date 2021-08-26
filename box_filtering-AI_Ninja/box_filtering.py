@@ -3,10 +3,10 @@
 """
 Description
 
-Implement a funciton to perform "Box filtering" (averaging filtering)
+Implement a function to perform "Box filtering" (averaging filtering)
 
 Implement a box filter which blur the image / average the neighborhood.
-The input contains an m-by-n image and a box size. For each pixel, its value
+The input contains an m-by-n 2D image and a box size. For each pixel, its value
 in the output image should be the average of its neighorhood in the
 input image. The neighborhood is defined by the box size.
 
@@ -49,7 +49,7 @@ def box_filter_BS(img, sbox):
 
     return new_img
 
-image2 = [
+image = [
             [9, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0],
             [9, 9, 9, 9, 9, 9],
@@ -67,7 +67,7 @@ image3 = [
             [0,  0,  0,  0,  0,  0,  25]
 ]
 
-image = [
+image2 = [
             [27, 0,  0,  0,  0,  0,  0],
             [27, 0,  0,  0,  0,  0,  27],
             [0,  0,  0,  0,  0,  0,  27]
@@ -86,3 +86,8 @@ filtered_image = box_filter_BS(image, size_of_box)
 #print(image)
 for i in range(len(filtered_image)):
     print(filtered_image[i])
+
+for i in range(3):
+
+w, h = image.shape()
+print(w, h)
