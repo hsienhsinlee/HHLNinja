@@ -23,7 +23,7 @@ box size: box is square, and it is odd number on each side (e.g., 3x3 or 5x5)
 """
 from copy import copy, deepcopy
 from math import floor
-import numpy as np
+#import numpy as np
 
 # Brute-force approach
 def box_filter_BS(img, sbox):
@@ -87,7 +87,7 @@ filtered_image = box_filter_BS(image, size_of_box)
 for i in range(len(filtered_image)):
     print(filtered_image[i])
 
-arr = np.array([[1, 2, 3, 4], [5, 6, 7, 8], [0, -1, 0, -1]])
-print(arr)
-w, h = arr.shape
-print(w, h)
+#arr = np.array([[1, 2, 3, 4], [5, 6, 7, 8], [0, -1, 0, -1]])
+#print(arr)
+#w, h = arr.shape
+#print(w, h)
