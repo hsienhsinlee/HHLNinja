@@ -25,15 +25,27 @@ Explanation: A ship capacity of 15 is the minimum to ship all the packages in 5 
 Output: 15
 
 """
+"""
+Input: weights = [4, 1, 8, 2, 3, 3, 4, 2], D = 3
 
+Explanation: A ship capacity of 15 is the minimum to ship all the packages in 3 days like this:
+1st day: 4, 1
+2nd day: 8, 2
+3rd day: 3, 3, 4, 2
+
+Output = 12
+"""
 def can_ship(pkg, per_day_weights, D):
     days = 1
     total = 0
+    print("per day weights =",per_day_weights)
     for i in pkg:
         total += i
+        print("L=",i, " ",end='')
         if total > per_day_weights :
             total = i
             days += 1
+            print(" return ")
 
     if days > D:
         return False
@@ -56,11 +68,12 @@ def print_schedule(pkg, min_weights, D):
             print (i,' ',end='')
     print("]")
 
+Ainput_packages = [4, 1, 8, 2, 3, 3, 4, 2]
 Dinput_packages = [7, 1, 3, 5, 6, 4, 4, 4, 8, 5, 7, 8, 6, 5, 1, 1, 1, 5] # D = 8   O = 12
-Ainput_packages = [7, 1, 3, 5, 6, 4, 4, 9, 8, 10, 7, 8, 9 , 5, 1, 1, 1, 8] # D = 20   O = 10
-Binput_packages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]  # D = 5  O = 15
+Hinput_packages = [7, 1, 3, 5, 6, 4, 4, 9, 8, 10, 7, 8, 9 , 5, 1, 1, 1, 8] # D = 20   O = 10
+input_packages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]  # D = 5  O = 15
 Cinput_packages = [3, 2, 2, 4, 1, 4]  # D = 3    O = 6
-input_packages = [1, 1, 2, 1] # D = 2   O  = 11
+Finput_packages = [1, 1, 2, 1] # D = 2   O  = 11
 Einput_packages = [1, 2, 3, 1, 1]  # D = 4   O = 3
 D = 2
 
