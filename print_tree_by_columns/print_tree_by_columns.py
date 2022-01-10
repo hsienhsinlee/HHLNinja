@@ -64,7 +64,7 @@ def breadth_first_search(treelist):
         else:
             sorted_list[vline] = [val]
         ## print(sorted_list)
-        if (node.left is not None):
+        if (node.left):
             node.left.vline = vline - 1
             enqueue.append(node.left)
         if (node.right):
