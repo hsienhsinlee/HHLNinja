@@ -50,34 +50,29 @@ class tree_node:
         print(self.left)
         print(self.right)
 
-def tree_construction1():
-    # building left side of the tree
-    root = tree_node(6, None, None)
-    root.left = tree_node(3, None, None)
-    root.left.left = tree_node(5, None, None)
-    root.left.left.right = tree_node(2, None, None)
-    root.left.left.right.left = tree_node(9, None, None)
-    root.left.left.right.right = tree_node(7, None, None)
-    # building right side of the tree
-    root.right = tree_node(4, None, None)
-    root.right.left = tree_node(1, None, None)
-    root.right.right = tree_node(0, None, None)
-    root.right.right.left = tree_node(8, None, None)
-    return root
-
-def tree_construction():
-    # building left side of the tree
-    root = tree_node(1, None, None)
-    root.left = tree_node(2, None, None)
-    root.left.left = tree_node(3, None, None)
-    root.left.left.right = tree_node(4, None, None)
-    #root.left.left.right.left = tree_node(9, None, None)
-    root.left.left.right.right = tree_node(5, None, None)
-    # building right side of the tree
-    root.right = tree_node(6, None, None)
-    root.right.left = tree_node(7, None, None)
-    #root.right.right = tree_node(0, None, None)
-    #root.right.right.left = tree_node(8, None, None)
+def tree_construction(input_val):
+    print(input_val, len(input_val))
+    root = tree_node(input_val.pop(0), None, None)
+    enqueue = []
+    enqueue.append(root)
+    dummy = tree_node(None, None, None)
+    while (len(input_val)!=0 and enqueue):
+        node = enqueue.pop(0)
+        if (node == dummy):
+            next
+        val1 = input_val.pop(0)
+        val2 = input_val.pop(0)
+        print("v1=",val1," v2=",val2)
+        if (val1 != None):
+            node.left  = tree_node(val1, None, None)
+            enqueue.append(node.left)
+        else:
+            enqueue.append(dummy)
+        if (val2 != None):
+            node.right = tree_node(val2, None, None)
+            enqueue.append(node.right)
+        else:
+            enqueue.append(dummy)
     return root
 
 def breadth_first_search(root):
@@ -103,7 +98,24 @@ def breadth_first_search(root):
 
 
 # main program
-root = tree_construction()
+aaa = [6,
+     3, 4,
+     5, None, 1, 0,
+     None, 2, None, None, None, None, 8, None,
+     None, None, 9, 7, None, None, None, None, None, None, None, None, None, None, None, None]
+
+a = [1,
+     2, 3,
+     4, 5, 6, 7]
+#     8, 9, 10, 11, 12, 13, 14, 15]
+
+a1 = [1,
+     2, 6,
+     3, None, 7, None,
+     None, 4, None, None, None, None, None, None,
+     None, None, None, 5, None, None, None, None, None, None, None, None, None, None, None, None,]
+root = tree_construction(a)
+
 
 final_list = breadth_first_search(root)
 final_index = sorted(final_list)
@@ -114,15 +126,16 @@ for i in final_index:
 print("")
 """
 
+
 root.display()
 root.left.display()
 root.left.left.display()
 root.left.left.right.display()
-#root.left.left.right.left.display()
-#root.left.left.right.right.display()
+root.left.left.right.left.display()
+root.left.left.right.right.display()
 
 root.right.display()
 root.right.left.display()
 root.right.right.display()
-#root.right.right.left.display()
+root.right.right.left.display()
 """
