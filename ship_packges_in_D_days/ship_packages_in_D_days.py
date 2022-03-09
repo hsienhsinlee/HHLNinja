@@ -5,7 +5,6 @@ Description
 
 Find the min capacity of the ship to deliver the packages within D days.
 
-
 A conveyor belt has packages that must be shipped from one port to another within
 D days. The i-th package on the conveyor belt has a weight of weights[i].
 Each day, we load the ship with packages on the conveyor belt (** in the order
@@ -13,7 +12,7 @@ given by weights **). We may not load more weight than the maximum weight capaci
 of the ship. Please return the least weight capacity of the ship that will result
 in all the packages on the conveyor belt being shipped within D days.
 
-Input: weights = [1,2,3,4,5,6,7,8,9,10], D = 5
+Input: weights = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], D = 5
 
 Explanation: A ship capacity of 15 is the minimum to ship all the packages in 5 days like this:
 1st day: 1, 2, 3, 4, 5
@@ -75,7 +74,7 @@ input_packages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]  # D = 5  O = 15
 Cinput_packages = [3, 2, 2, 4, 1, 4]  # D = 3    O = 6
 Finput_packages = [1, 1, 2, 1] # D = 2   O  = 11
 Einput_packages = [1, 2, 3, 1, 1]  # D = 4   O = 3
-D = 2
+D = 5
 
 max_load = max(input_packages)
 print("max=",max_load)

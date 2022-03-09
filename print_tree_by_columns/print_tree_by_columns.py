@@ -19,25 +19,10 @@ Input:
 
 Output:
 5 9 3 2 6 1 7 4 8 0
-
-
-Input:
-      1
-     / \
-    2   6
-   /   /
-  3   7
-   \
-    4
-     \
-      5
-
-Output:
-3 2 4 1 7 5 6
 """
 
 from collections import OrderedDict
-
+from binarytree import build
 
 class tree_node:
     def __init__(self, value, left, right):
@@ -49,6 +34,10 @@ class tree_node:
         print(self.value)
         print(self.left)
         print(self.right)
+
+def tree_con(input):
+    for i in input:
+
 
 def tree_construction1():
     # building left side of the tree
@@ -104,7 +93,6 @@ def breadth_first_search(root):
 
 # main program
 root = tree_construction()
-
 final_list = breadth_first_search(root)
 final_index = sorted(final_list)
 for i in final_index:
@@ -112,17 +100,17 @@ for i in final_index:
         print(j, end=' ')
 
 print("")
-"""
 
+"""
 root.display()
 root.left.display()
 root.left.left.display()
 root.left.left.right.display()
-#root.left.left.right.left.display()
-#root.left.left.right.right.display()
+root.left.left.right.left.display()
+root.left.left.right.right.display()
 
 root.right.display()
 root.right.left.display()
 root.right.right.display()
-#root.right.right.left.display()
+root.right.right.left.display()
 """

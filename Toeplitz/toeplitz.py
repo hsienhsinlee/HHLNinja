@@ -14,7 +14,7 @@ An example of a Toeplitz matrix is:
  8 9 4 5 6
  3 8 9 4 5
  */
- 
+
 """
 
 matrix = [

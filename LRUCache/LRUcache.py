@@ -5,7 +5,7 @@
 Implement a Least-Recently Used (LRU) cache
 
 1. When an item is added or updated, it is now the most recently used
-item a.k.a. freshest item.
+item a.k.a. the freshest item.
 
 2. When the cache has exceeded capacity, the "least recently used"
 item is evicted, memory is not unbounded.
