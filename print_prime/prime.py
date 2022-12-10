@@ -19,6 +19,8 @@ def find_primes(n):
 
     # if the number is prime, add it to the list of primes
     if is_prime:
+      print(i,end="")
+      print(", ",end="")
       primes.append(i)
 
   # return the list of primes
@@ -37,7 +39,9 @@ while True:
   primes = find_primes(max_num)
 
   # print the list of prime numbers
+  print("\n")
   print(primes)
+  print("total number of primes =", len(primes))
 
 # print a message when the program ends
 print("Thank you for using the program. Goodbye!")
