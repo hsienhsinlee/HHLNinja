@@ -24,16 +24,16 @@ def find_primes(n):
     # if the number is prime, add it to the list of primes
     if is_prime:
       distance = i - last_prime
-      print(i,end="")
+      print("{:10d}".format(i),end="")
       print(", ",end="")
       count_prime+=1
-      print(" Count = ", count_prime, end="")
-      print(" Dist = ", distance, end="")
+      print(" | Count = ", "{:10d}".format(count_prime), end="")
+      print(" | Dist = ", "{:5d}".format(distance), end="")
       if (distance >= largest_distance):
         largest_distance = distance
         last_prime_with_largest_distance = i
-      print(" Max Dist = ", largest_distance, end="")
-      print(" Prime of Max Dist = ", last_prime_with_largest_distance)
+      print(" | Max Dist = ", "{:5d}".format(largest_distance), end="")
+      print(" | Prime of Max Dist = ", "{:5d}".format(last_prime_with_largest_distance))
       last_prime = i
       primes.append(i)
 
