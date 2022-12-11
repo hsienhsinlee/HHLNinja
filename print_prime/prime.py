@@ -4,6 +4,7 @@
 def find_primes(n):
   # create an empty list to store the prime numbers
   primes = []
+  count_primt = 0
 
   # loop through the numbers from 2 to n
   for i in range(2, n+1):
@@ -21,6 +22,8 @@ def find_primes(n):
     if is_prime:
       print(i,end="")
       print(", ",end="")
+      count_primt+=1
+      print(" Count = ", count_primt)
       primes.append(i)
 
   # return the list of primes
