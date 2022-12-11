@@ -4,7 +4,10 @@
 def find_primes(n):
   # create an empty list to store the prime numbers
   primes = []
-  count_primt = 0
+  count_prime = 0
+  last_prime = 0
+  largest_distance = 0
+  last_prime_with_largest_distance = 0
 
   # loop through the numbers from 2 to n
   for i in range(2, n+1):
@@ -20,10 +23,18 @@ def find_primes(n):
 
     # if the number is prime, add it to the list of primes
     if is_prime:
+      distance = i - last_prime
       print(i,end="")
       print(", ",end="")
-      count_primt+=1
-      print(" Count = ", count_primt)
+      count_prime+=1
+      print(" Count = ", count_prime, end="")
+      print(" Dist = ", distance, end="")
+      if (distance >= largest_distance):
+        largest_distance = distance
+        last_prime_with_largest_distance = i
+      print(" Max Dist = ", largest_distance, end="")
+      print(" Prime of Max Dist = ", last_prime_with_largest_distance)
+      last_prime = i
       primes.append(i)
 
   # return the list of primes
