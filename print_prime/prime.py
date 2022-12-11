@@ -9,7 +9,8 @@ def find_primes(n):
   last_prime = 0
   largest_distance = 0
   last_prime_with_largest_distance = 0
-  os.remove('./dist_prime.txt')
+  if os.path.exists('./dist_prime.txt'):
+    os.remove('./dist_prime.txt')
 
   # loop through the numbers from 2 to n
   for i in range(2, n+1):
