@@ -31,18 +31,18 @@ def find_primes(n):
       print(", ",end="")
       count_prime+=1
       print(" | Count = ", "{:11d}".format(count_prime), end="")
-      print(" | Dist = ", "{:5d}".format(distance), end="")
+      print(" | Dist = ", "{:9d}".format(distance), end="")
       if (distance >= largest_distance):
         largest_distance = distance
         with open('dist_prime.txt', 'a') as file:
           prime_gap = i - last_prime_with_largest_distance
           file.write('{:11d}'.format(i))
           file.write(' | Count = {:11d}'.format(count_prime))
-          file.write(' | Latest Max Dist = {:5d}'.format(distance))
+          file.write(' | Latest Max Dist = {:9d}'.format(distance))
           file.write(' | Max-Dist Prime Gap = {:11d}\n'.format(prime_gap))
         last_prime_with_largest_distance = i
-      print(" | Max Dist = ", "{:5d}".format(largest_distance), end="")
-      print(" | Prime of Max Dist = ", "{:5d}".format(last_prime_with_largest_distance))
+      print(" | Max Dist = ", "{:9d}".format(largest_distance), end="")
+      print(" | Prime of Max Dist = ", "{:9d}".format(last_prime_with_largest_distance))
       last_prime = i
       primes.append(i)
 
