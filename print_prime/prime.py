@@ -1,4 +1,5 @@
 # written by OpenAI ChatGPT
+import os # for remove output file
 
 # define a function to find the prime numbers up to a given number
 def find_primes(n):
@@ -8,6 +9,7 @@ def find_primes(n):
   last_prime = 0
   largest_distance = 0
   last_prime_with_largest_distance = 0
+  os.remove('./dist_prime.txt')
 
   # loop through the numbers from 2 to n
   for i in range(2, n+1):
@@ -31,6 +33,10 @@ def find_primes(n):
       print(" | Dist = ", "{:5d}".format(distance), end="")
       if (distance >= largest_distance):
         largest_distance = distance
+        with open('dist_prime.txt', 'a') as file:
+          file.write('{:10d}'.format(i))
+          file.write(' | Count = {:10d}'.format(count_prime))
+          file.write(' | Latest Max Dist = {:5d}\n'.format(distance))
         last_prime_with_largest_distance = i
       print(" | Max Dist = ", "{:5d}".format(largest_distance), end="")
       print(" | Prime of Max Dist = ", "{:5d}".format(last_prime_with_largest_distance))
@@ -54,7 +60,7 @@ while True:
 
   # print the list of prime numbers
   print("\n")
-  print(primes)
+  # print(primes)
   print("total number of primes =", len(primes))
 
 # print a message when the program ends
