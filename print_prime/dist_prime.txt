@@ -1,4 +1,19 @@
-         2 | Count =          1 | Latest Max Dist =     2
-         5 | Count =          3 | Latest Max Dist =     2
-         7 | Count =          4 | Latest Max Dist =     2
-        11 | Count =          5 | Latest Max Dist =     4
+          2 | Count =           1 | Latest Max Dist =     2 | Max-Dist Prime Gap =           2
+          5 | Count =           3 | Latest Max Dist =     2 | Max-Dist Prime Gap =           3
+          7 | Count =           4 | Latest Max Dist =     2 | Max-Dist Prime Gap =           2
+         11 | Count =           5 | Latest Max Dist =     4 | Max-Dist Prime Gap =           4
+         17 | Count =           7 | Latest Max Dist =     4 | Max-Dist Prime Gap =           6
+         23 | Count =           9 | Latest Max Dist =     4 | Max-Dist Prime Gap =           6
+         29 | Count =          10 | Latest Max Dist =     6 | Max-Dist Prime Gap =           6
+         37 | Count =          12 | Latest Max Dist =     6 | Max-Dist Prime Gap =           8
+         53 | Count =          16 | Latest Max Dist =     6 | Max-Dist Prime Gap =          16
+         59 | Count =          17 | Latest Max Dist =     6 | Max-Dist Prime Gap =           6
+         67 | Count =          19 | Latest Max Dist =     6 | Max-Dist Prime Gap =           8
+         79 | Count =          22 | Latest Max Dist =     6 | Max-Dist Prime Gap =          12
+         89 | Count =          24 | Latest Max Dist =     6 | Max-Dist Prime Gap =          10
+         97 | Count =          25 | Latest Max Dist =     8 | Max-Dist Prime Gap =           8
+        127 | Count =          31 | Latest Max Dist =    14 | Max-Dist Prime Gap =          30
+        307 | Count =          63 | Latest Max Dist =    14 | Max-Dist Prime Gap =         180
+        331 | Count =          67 | Latest Max Dist =    14 | Max-Dist Prime Gap =          24
+        541 | Count =         100 | Latest Max Dist =    18 | Max-Dist Prime Gap =         210
+        907 | Count =         155 | Latest Max Dist =    20 | Max-Dist Prime Gap =         366
