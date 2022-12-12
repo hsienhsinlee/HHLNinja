@@ -19,3 +19,5 @@
         907 | Count =         155 | Latest Max Dist =        20 | Max-Dist Prime Gap =         366
        1151 | Count =         190 | Latest Max Dist =        22 | Max-Dist Prime Gap =         244
        1361 | Count =         218 | Latest Max Dist =        34 | Max-Dist Prime Gap =         210
+         11 | Count =           1 | Latest Max Dist =        11 | Max-Dist Prime Gap =          11
+        101 | Count =           1 | Latest Max Dist =       101 | Max-Dist Prime Gap =         101

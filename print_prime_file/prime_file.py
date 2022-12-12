@@ -2,18 +2,19 @@
 import os # for remove output file
 
 # define a function to find the prime numbers up to a given number
-def find_primes(n):
+def find_primes(start, end):
   # create an empty list to store the prime numbers
   primes = []
   count_prime = 0
-  last_prime = 0
+  last_prime = start
   largest_distance = 0
   last_prime_with_largest_distance = 0
+  is_first_num = False
   #if os.path.exists('./dist_prime.txt'):
   #  os.remove('./dist_prime.txt')
 
   # loop through the numbers from 2 to n
-  for i in range(2, n+1):
+  for i in range(start, end+1):
     # assume that the number is prime
     is_prime = True
 
@@ -32,6 +33,9 @@ def find_primes(n):
       count_prime+=1
       print(" | Count = ", "{:11d}".format(count_prime), end="")
       print(" | Dist = ", "{:9d}".format(distance), end="")
+      #if (is_first_num):
+       # is_first_num = False
+        #next
       if (distance >= largest_distance):
         largest_distance = distance
         with open('dist_prime.txt', 'a') as file:
@@ -52,6 +56,7 @@ def find_primes(n):
 # create a loop to allow the user to enter multiple maximum numbers
 while True:
   # prompt the user to enter the maximum number
+  low_num = int(input("Enter the minimum number: "))
   max_num = int(input("Enter the maximum number (0 to quit): "))
 
   # check if the user entered 0 to quit
@@ -59,7 +64,7 @@ while True:
     break
 
   # find the prime numbers up to the maximum number
-  primes = find_primes(max_num)
+  primes = find_primes(low_num, max_num)
 
   # print the list of prime numbers
   print("\n")
