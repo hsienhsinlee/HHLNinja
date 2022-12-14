@@ -21,3 +21,10 @@
        1361 | Count =         218 | Latest Max Dist =        34 | Max-Dist Prime Gap =         210
          11 | Count =           1 | Latest Max Dist =        11 | Max-Dist Prime Gap =          11
         101 | Count =           1 | Latest Max Dist =       101 | Max-Dist Prime Gap =         101
+          2 | Count =           1 | Latest Max Dist =         2 | Max-Dist Prime Gap =           2
+          5 | Count =           3 | Latest Max Dist =         2 | Max-Dist Prime Gap =           3
+          7 | Count =           4 | Latest Max Dist =         2 | Max-Dist Prime Gap =           2
+          2 | Count =           1 | Latest Max Dist =         2 | Max-Dist Prime Gap =           2
+          5 | Count =           3 | Latest Max Dist =         2 | Max-Dist Prime Gap =           3
+          7 | Count =           4 | Latest Max Dist =         2 | Max-Dist Prime Gap =           2
+         11 | Count =           5 | Latest Max Dist =         4 | Max-Dist Prime Gap =           4

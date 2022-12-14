@@ -19,6 +19,7 @@ def find_primes(n):
 
     # loop through the numbers from 2 to the square root of i
     for j in range(2, int(i ** 0.5) + 1):
+      print("j=",j)
       # if the number is divisible by j, it is not prime
       if i % j == 0:
         is_prime = False

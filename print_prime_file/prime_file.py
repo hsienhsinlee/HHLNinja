@@ -1,5 +1,6 @@
 # written by OpenAI ChatGPT
 import os # for remove output file
+import math # to use ceil function
 
 # define a function to find the prime numbers up to a given number
 def find_primes(start, end):
@@ -12,14 +13,44 @@ def find_primes(start, end):
   is_first_num = False
   #if os.path.exists('./dist_prime.txt'):
   #  os.remove('./dist_prime.txt')
+    
+  if start <= 2:
+    i = 2 # special taking care of 2
+    distance = i - last_prime
+    print("{:11d}".format(i),end="")
+    print(", ",end="")
+    count_prime+=1
+    print(" | Count = ", "{:11d}".format(count_prime), end="")
+    print(" | Dist = ", "{:9d}".format(distance), end="")
+    if (distance >= largest_distance):
+      largest_distance = distance
+      with open('dist_prime.txt', 'a') as file:
+        prime_gap = i - last_prime_with_largest_distance
+        file.write('{:11d}'.format(i))
+        file.write(' | Count = {:11d}'.format(count_prime))
+        file.write(' | Latest Max Dist = {:9d}'.format(distance))
+        file.write(' | Max-Dist Prime Gap = {:11d}\n'.format(prime_gap))
+      last_prime_with_largest_distance = i
+    print(" | Max Dist = ", "{:9d}".format(largest_distance), end="")
+    print(" | Prime of Max Dist = ", "{:9d}".format(last_prime_with_largest_distance))
+    last_prime = i
+    primes.append(i)
+    start = 3
 
-  # loop through the numbers from 2 to n
-  for i in range(start, end+1):
+    # loop through the numbers from 2 to n
+  if start % 2 == 0:
+    start += 1
+  ####################################################################
+  
+  for i in range(start, end+1, 2):  # ignore 2 here
     # assume that the number is prime
     is_prime = True
-
+    if (i % 2 == 0):
+      is_prime = False
+      next
     # loop through the numbers from 2 to the square root of i
-    for j in range(2, int(i ** 0.5) + 1):
+    for j in range(3, math.ceil(i ** 0.5 + 1), 2):
+      #print("j=",j)
       # if the number is divisible by j, it is not prime
       if i % j == 0:
         is_prime = False
@@ -33,9 +64,6 @@ def find_primes(start, end):
       count_prime+=1
       print(" | Count = ", "{:11d}".format(count_prime), end="")
       print(" | Dist = ", "{:9d}".format(distance), end="")
-      #if (is_first_num):
-       # is_first_num = False
-        #next
       if (distance >= largest_distance):
         largest_distance = distance
         with open('dist_prime.txt', 'a') as file:
